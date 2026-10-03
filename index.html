@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d18">
+    <meta name="description" content="A little friendly competition. Play tic-tac-toe together in a Refract call, or practice on your own. An open-source Refract activity.">
+    <title>Tic-tac-toe · Refract Activities</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="Refract Activities home"><span class="brand-symbol" aria-hidden="true">◈</span><span>refract<span class="brand-divider">/</span><span class="brand-product">activities</span></span></a>
+        <span id="connection" class="connection"><span class="status-dot"></span><span id="connection-label">Local practice</span></span>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="headline">
+          <div><p class="eyebrow"><span class="small-cross" aria-hidden="true">✳</span> Small games. Shared moments.</p><h1 id="headline">A little friendly<br><span>competition.</span></h1><p class="intro-copy">Same call. Next move. A classic made for playing together.</p></div>
+          <div class="edition" aria-hidden="true"><span>THE CLASSICS</span><strong>001<span> / </span></strong><span>TIC-TAC-TOE</span></div>
+        </section>
+
+        <div class="game-layout">
+          <aside class="lobby">
+            <section class="lineup-panel" aria-labelledby="lineup-heading">
+              <div class="section-heading"><h2 id="lineup-heading">The lineup</h2><span id="player-count" class="small-label">2 PLAYERS</span></div>
+              <div class="player-card" id="player-x"><div class="player-symbol mark-x" aria-hidden="true">×</div><div class="player-copy"><h3 id="name-x">You</h3><span id="detail-x">Ready to play</span></div><span class="turn-indicator" aria-hidden="true"></span></div>
+              <div class="player-card" id="player-o"><div class="player-symbol mark-o" aria-hidden="true">○</div><div class="player-copy"><h3 id="name-o">Computer</h3><span id="detail-o">Always up for a game</span></div><span class="turn-indicator" aria-hidden="true"></span></div>
+              <p id="spectators" class="spectator-note" hidden></p>
+              <div id="local-modes" class="mode-section"><p class="field-label">YOUR WAY TO PLAY</p><div class="mode-switch" role="group" aria-label="Practice mode"><button type="button" id="mode-computer" aria-pressed="true">vs computer</button><button type="button" id="mode-local" aria-pressed="false">pass & play</button></div><p class="mode-hint" id="mode-hint">A worthy opponent. Can you force a draw?</p></div>
+              <div id="refract-info" class="refract-info" hidden><span class="live-label"><span class="status-dot"></span> Together in Refract</span><p id="seat-description">Your seat is being prepared.</p><button id="sync" class="text-button" type="button">Resync game <span aria-hidden="true">↻</span></button><button id="leave" class="text-button leave-button" type="button">Leave game <span aria-hidden="true">↗</span></button></div>
+            </section>
+            <section class="rules-panel"><span class="rule-icon" aria-hidden="true">↗</span><div><h2>Three is the magic number.</h2><p>Take turns. Pick an empty square. Get three in a row, column, or diagonal.</p><p class="rule-footnote">New round, new starting player.</p></div></section>
+            <a class="preview-link" id="preview-link" href="./tools/preview.html">Try the shared activity preview <span aria-hidden="true">↗</span></a>
+          </aside>
+
+          <section class="game-panel" aria-labelledby="game-title">
+            <div class="game-header"><div><span class="eyebrow">THE ORIGINAL 3 × 3</span><h2 id="game-title">Tic-tac-toe<span class="title-dot">.</span></h2></div><span id="round" class="round-badge">ROUND 01</span></div>
+            <div class="turn-bar" id="turn-bar"><span id="status-symbol" class="status-symbol mark-x" aria-hidden="true">×</span><div><p id="status" role="status" aria-live="polite">Your move</p><p id="status-detail">Pick a square and make it yours.</p></div><span id="turn-tag" class="turn-tag">LET’S PLAY</span></div>
+            <div class="board-wrap"><div id="board" class="board" role="group" aria-label="Tic-tac-toe board">
+              <button class="cell" data-cell="0" aria-label="Row 1, column 1, empty" type="button"></button><button class="cell" data-cell="1" aria-label="Row 1, column 2, empty" type="button"></button><button class="cell" data-cell="2" aria-label="Row 1, column 3, empty" type="button"></button>
+              <button class="cell" data-cell="3" aria-label="Row 2, column 1, empty" type="button"></button><button class="cell" data-cell="4" aria-label="Row 2, column 2, empty" type="button"></button><button class="cell" data-cell="5" aria-label="Row 2, column 3, empty" type="button"></button>
+              <button class="cell" data-cell="6" aria-label="Row 3, column 1, empty" type="button"></button><button class="cell" data-cell="7" aria-label="Row 3, column 2, empty" type="button"></button><button class="cell" data-cell="8" aria-label="Row 3, column 3, empty" type="button"></button>
+            </div></div>
+            <div class="scoreboard" aria-label="Match scores"><div><span class="score-label"><span class="mark-x">×</span> X WINS</span><strong id="score-x">0</strong></div><div><span class="score-label">DRAWS</span><strong id="score-draw">0</strong></div><div><span class="score-label"><span class="mark-o">○</span> O WINS</span><strong id="score-o">0</strong></div></div>
+            <div class="game-actions"><span id="round-note">A fresh board. Endless possibilities.</span><button class="primary-button" id="next-round" type="button" disabled>Next round <span aria-hidden="true">↗</span></button></div>
+            <p id="notice" class="notice" role="status" hidden></p>
+          </section>
+        </div>
+        <section id="call-banner" class="call-banner"><div class="banner-icon" aria-hidden="true">◈</div><div><h2>Better with someone on the other end.</h2><p>Open this activity from a Refract call to play together, live.</p></div><a href="https://github.com/Celzor/refract-tack-toe#play-in-refract" target="_blank" rel="noopener noreferrer">Connect to Refract <span aria-hidden="true">↗</span></a></section>
+      </main>
+
+      <footer><span>Made for the moments between conversations.</span><a href="https://github.com/Celzor/refract-tack-toe" target="_blank" rel="noopener noreferrer">Open source <span aria-hidden="true">↗</span></a></footer>
+    </div>
+    <noscript>This activity needs JavaScript to play. Enable JavaScript, then reload this page.</noscript>
+  </body>
+</html>
